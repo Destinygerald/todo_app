@@ -93,7 +93,7 @@ function App() {
 
   function completedTask(id) {
     let selectedTodo = todo.find(obj => (
-      obj.id === id
+      obj?.id === id
     ))
 
     selectedTodo.completed = true;
@@ -103,11 +103,11 @@ function App() {
 
   function handleDelete(id) {
     let selectedTodo = todo.filter(obj => (
-      obj.id !== id
+      obj?.id !== id
     ))
 
     selectedTodo.forEach((obj, idx) => {
-      obj.id = idx
+      obj?.id = idx
     })
 
     setTodo(selectedTodo)
@@ -120,7 +120,7 @@ function App() {
 
   function saveEdit() {
     let selectedTodo = todo.find(obj => (
-      obj.id === selectedId
+      obj?.id === selectedId
     ))
 
     selectedTodo.todo = edit
