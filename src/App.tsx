@@ -1,19 +1,19 @@
 import { useState, useRef, useEffect } from 'react'
-import { AiOutlinePlus } from 'react-icons/ai'
+//import { AiOutlinePlus } from 'react-icons/ai'
 import { useLocalStorage } from "./UseLocalStorage"
 import './App.css'
 
 type TodoElementProps = {
   info: string;
   handleClick: () => void;
-  completed: bool;
+  completed: boolean;
   makeDelete: () => void;
   edit: () => void;
 }
 
 const TodoElement = ({ info, handleClick, completed, makeDelete, edit }: TodoElementProps) => {
  
-  const [ clicked, setClicked ] = useState<bool>(false);
+  const [ clicked, setClicked ] = useState<boolean>(false);
 
   function clickHandler() {
     handleClick()
@@ -64,7 +64,7 @@ function App() {
 
   const [ task, setTask ] = useState<string>('')
   const [ todo, setTodo ] = useLocalStorage("TODO", [])
-  const [ editPopup, setEditPopup ] = useState<string>(false)
+  const [ editPopup, setEditPopup ] = useState<boolean>(false)
   const [ edit, setEdit ] = useState<string>('')
   const [ selectedId, setSelectedId ] = useState<number>(0)
 
