@@ -70,7 +70,7 @@ function App() {
 
   const popupRef = useRef()
 
-  function searchHandler(e) {
+  function searchHandler(e: ChangeEvent) {
     setTask(e.target.value)
   }
 
@@ -91,9 +91,9 @@ function App() {
     setTask('')
   }
 
-  function completedTask(id) {
+  function completedTask(id: number) {
     let selectedTodo = todo.find(obj => (
-      obj?.id === id
+      parseInt(obj?.id) === id
     ))
 
     selectedTodo.completed = true;
@@ -101,9 +101,9 @@ function App() {
     setTodo(todo)
   }
 
-  function handleDelete(id) {
+  function handleDelete(id: number) {
     let selectedTodo = todo.filter(obj => (
-      obj?.id !== id
+      parseInt(obj?.id) !== id
     ))
 
     selectedTodo.forEach((obj, idx) => {
