@@ -104,7 +104,9 @@ function App() {
       parseInt(obj?.id) === id
     ))
 
-    selectedTodo.completed = true;
+    if(!selectedTodo) return;
+
+    selectedTodo?.completed = true;
 
     setTodo(todo)
   }
@@ -115,13 +117,13 @@ function App() {
     ))
 
     selectedTodo.forEach((obj, idx) => {
-      obj?.id = idx
+      obj.id = idx
     })
 
     setTodo(selectedTodo)
   }
 
-  function handleEdit(id) {
+  function handleEdit(id: number) {
     setEditPopup(true)
     setSelectedId(id)
   }
@@ -131,7 +133,9 @@ function App() {
       obj?.id === selectedId
     ))
 
-    selectedTodo.todo = edit
+    if(!selectedTodo) return;
+    
+    selectedTodo?.todo = edit
 
     setSelectedId(0);
 
@@ -145,7 +149,7 @@ function App() {
 
     if (!popup) return
     
-    const handler = (e) => {
+    const handler = (e: React.MouseEvent<HTMLElement>) => {
       if (!popupRef.current.contains(e.target)) {
         setEditPopup(false)
       } 
@@ -171,7 +175,7 @@ function App() {
         <div className="todo-list">
           {
             todo.map((item, idx) => (
-              <TodoElement info={item.todo} key={idx} completed={item.completed} handleClick={() => completedTask(idx)} makeDelete={() => handleDelete(idx)} edit={() => handleEdit(idx)} />
+              <TodoElement info={item.todo} key={idx} completed={item.completed} handleClick={() => completedTask(parseInt(idx))} makeDelete={() => handleDelete(parseInt(idx))} edit={() => handleEdit(parseInt(idx))} />
             ))
           }
         </div>
