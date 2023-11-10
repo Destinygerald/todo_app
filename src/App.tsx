@@ -60,10 +60,17 @@ const TodoElement = ({ info, handleClick, completed, makeDelete, edit }: TodoEle
 }
 
 
-function App() {
+type TodoProp = {
+    todo: string,
+    id: number,
+    completed: boolean
+}
 
+
+function App() {
+  
   const [ task, setTask ] = useState<string>('')
-  const [ todo, setTodo ] = useLocalStorage("TODO", [])
+  const [ todo, setTodo ] = useLocalStorage<TodoProp>("TODO", [])
   const [ editPopup, setEditPopup ] = useState<boolean>(false)
   const [ edit, setEdit ] = useState<string>('')
   const [ selectedId, setSelectedId ] = useState<number>(0)
