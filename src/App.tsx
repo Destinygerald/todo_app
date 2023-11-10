@@ -155,10 +155,10 @@ function App() {
       } 
     }
 
-    popup.addEventListener('pointerdown', {() => handler()})
+    popup.addEventListener('pointerdown', () => handler())
     
     return () => {
-      popup.removeEventListener('pointerdown', {() => handler()})
+      popup.removeEventListener('pointerdown', () => handler())
     }
 
   })
