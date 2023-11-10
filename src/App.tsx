@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import * as React from 'react'
 //import { AiOutlinePlus } from 'react-icons/ai'
 import { useLocalStorage } from "./UseLocalStorage"
 import './App.css'
@@ -70,14 +71,14 @@ type TodoProp = {
 function App() {
   
   const [ task, setTask ] = useState<string>('')
-  const [ todo, setTodo ] = useLocalStorage<TodoProp>("TODO", [])
+  const [ todo, setTodo ] = useLocalStorage<TodoProp[]>("TODO", [])
   const [ editPopup, setEditPopup ] = useState<boolean>(false)
   const [ edit, setEdit ] = useState<string>('')
   const [ selectedId, setSelectedId ] = useState<number>(0)
 
   const popupRef = useRef()
 
-  function searchHandler(e: ChangeEvent) {
+  function searchHandler( React.ChangeEvent<HTMLInputElement>) {
     setTask(e.target.value)
   }
 
