@@ -78,7 +78,7 @@ function App() {
 
   const popupRef = useRef()
 
-  function searchHandler( React.ChangeEvent<HTMLInputElement>) {
+  function searchHandler( e: React.ChangeEvent<HTMLInputElement>) {
     setTask(e.target.value)
   }
 
