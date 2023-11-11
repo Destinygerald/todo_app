@@ -149,7 +149,7 @@ function App() {
 
     if (!popup) return
     
-    const handler = (e: React.MouseEvent<Element>) => {
+    const handler = (e: React.MouseEvent<Element, MouseEvent>) => {
       if (popupRef.current == undefined) return;
       
       if (!popupRef.current?.contains(e.target)) {
@@ -157,10 +157,10 @@ function App() {
       } 
     }
 
-    popup.addEventListener('pointerdown', (e) => handler(e))
+    popup.addEventListener('pointerdown', (e: MouseEvent) => handler(e))
     
     return () => {
-      popup.removeEventListener('pointerdown', (e) => handler(e))
+      popup.removeEventListener('pointerdown', (e: MouseEvent) => handler(e))
     }
 
   })
