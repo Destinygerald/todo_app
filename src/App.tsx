@@ -152,15 +152,15 @@ function App() {
     const handler = (e: React.MouseEvent<HTMLElement>) => {
       if (popupRef.current == undefined) return;
       
-      if (!popupRef.current.contains(e.target)) {
+      if (!popupRef.current?.contains(e.target)) {
         setEditPopup(false)
       } 
     }
 
-    popup.addEventListener('mousedown', (e) => handler(e))
+    popup.addEventListener('pointerdown', (e) => handler(e))
     
     return () => {
-      popup.removeEventListener('mousedown', (e) => handler(e))
+      popup.removeEventListener('pointerdown', (e) => handler(e))
     }
 
   })
