@@ -160,10 +160,10 @@ function App() {
     }
   }
 
-    popup.addEventListener('pointerdown', (e: React.MouseEvent<Element, MouseElement>) => handler(e))
+    popup.addEventListener('pointerdown', (e: MouseEventInit) => handler(e))
     
     return () => {
-      popup.removeEventListener('pointerdown', (e: React.MouseEvent<Element, MouseElement>) => handler(e))
+      popup.removeEventListener('pointerdown', (e: MouseEventInit) => handler(e))
     }
 
   })
