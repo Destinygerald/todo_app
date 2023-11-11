@@ -101,19 +101,19 @@ function App() {
 
   function completedTask(id: number) {
     let selectedTodo = todo.find(obj => (
-      parseInt(obj?.id) === id
+      obj?.id == id
     ))
 
     if(!selectedTodo) return;
 
-    selectedTodo?.completed = true;
+    selectedTodo.completed = true;
 
     setTodo(todo)
   }
 
   function handleDelete(id: number) {
     let selectedTodo = todo.filter(obj => (
-      parseInt(obj?.id) !== id
+      obj?.id != id
     ))
 
     selectedTodo.forEach((obj, idx) => {
