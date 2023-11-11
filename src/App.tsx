@@ -150,17 +150,20 @@ function App() {
     if (!popup) return
     
     const handler = (e: React.MouseEvent<Element, MouseEvent>) => {
-      if (popupRef.current == undefined) return;
+      if (popupRef.current == undefined) {
+        return;
+      } else {
       
       if (!popupRef.current?.contains(e.target)) {
         setEditPopup(false)
       } 
     }
+  }
 
-    popup.addEventListener('pointerdown', (e: MouseEvent) => handler(e))
+    popup.addEventListener('pointerdown', (e: React.MouseEvent<Element, MouseElement>) => handler(e))
     
     return () => {
-      popup.removeEventListener('pointerdown', (e: MouseEvent) => handler(e))
+      popup.removeEventListener('pointerdown', (e: React.MouseEvent<Element, MouseElement>) => handler(e))
     }
 
   })
