@@ -149,7 +149,7 @@ function App() {
 
     if (!popup) return
     
-    const handler = (e: React.MouseEvent<HTMLElement>) => {
+    const handler = (e: React.MouseEvent<Element>) => {
       if (popupRef.current == undefined) return;
       
       if (!popupRef.current?.contains(e.target)) {
