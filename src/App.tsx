@@ -157,10 +157,10 @@ function App() {
       } 
     }
 
-    popup.addEventListener('pointerdown', (e) => handler(e))
+    popup.addEventListener('mousedown', (e) => handler(e))
     
     return () => {
-      popup.removeEventListener('pointerdown', (e) => handler(e))
+      popup.removeEventListener('mousedown', (e) => handler(e))
     }
 
   })
@@ -177,7 +177,7 @@ function App() {
         <div className="todo-list">
           {
             todo.map((item, idx) => (
-              <TodoElement info={item.todo} key={idx} completed={item.completed} handleClick={() => completedTask(parseInt(idx))} makeDelete={() => handleDelete(parseInt(idx))} edit={() => handleEdit(parseInt(idx))} />
+              <TodoElement info={item.todo} key={idx} completed={item.completed} handleClick={() => completedTask(idx)} makeDelete={() => handleDelete(idx)} edit={() => handleEdit(idx)} />
             ))
           }
         </div>
