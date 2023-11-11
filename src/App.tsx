@@ -135,7 +135,7 @@ function App() {
 
     if(!selectedTodo) return;
     
-    selectedTodo?.todo = edit
+    selectedTodo.todo = edit
 
     setSelectedId(0);
 
@@ -150,6 +150,8 @@ function App() {
     if (!popup) return
     
     const handler = (e: React.MouseEvent<HTMLElement>) => {
+      if (popupRef.current == undefined) return;
+      
       if (!popupRef.current.contains(e.target)) {
         setEditPopup(false)
       } 
