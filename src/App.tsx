@@ -154,16 +154,16 @@ function App() {
         return;
       } else {
       
-      if (!popupRef?.current?.contains(e.target)) {
+      if (!popupRef.current?.contains(e.target) && popupRef.current !== undefined) {
         setEditPopup(false)
       } 
     }
   }
 
-    popup.addEventListener('pointerdown', (e: React.MouseEvent) => handler(e))
+    popup.addEventListener('pointerdown', (e: React.MouseEvent<Element, MouseEvent>) => handler(e))
     
     return () => {
-      popup.removeEventListener('pointerdown', (e: React.MouseEvent) => handler(e))
+      popup.removeEventListener('pointerdown', (e: React.MouseEvent<Element, MouseEvent>) => handler(e))
     }
 
   })
