@@ -108,7 +108,10 @@ function App() {
 
     selectedTodo.completed = true;
 
-    setTodo(todo)
+    // setTodo(todo)
+    setTimeout(() => {
+      localStorage.setItem('TODO', JSON.stringify(todo))
+    }, 1000)
   }
 
   function handleDelete(id: number) {
@@ -142,6 +145,10 @@ function App() {
     setEditPopup(false);
 
     setEdit('')
+
+    setTimeout(() => {
+      localStorage.setItem('TODO', JSON.stringify(todo))
+    }, 1000)
   }
 
   useEffect(() => {
